@@ -18,5 +18,9 @@ classifiers = [
   "Operating System :: OS Independent",
 ]
 
+[project.urls]
+Homepage = "https://github.com/StefanoMazzuka/steboxing"
+Repository = "https://github.com/StefanoMazzuka/steboxing"
+
 [tool.setuptools.packages.find]
 include = ["steboxing", "steboxing.*"]
