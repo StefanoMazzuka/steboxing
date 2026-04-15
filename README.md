@@ -5,25 +5,7 @@ A Python library for drawing Unicode text boxes around strings — supports 36 b
 ## Installation
 
 ```bash
-pip install -e .
-```
-
-## Build and publish (modern flow)
-
-Do not run `python setup.py ...` directly.
-
-Build distributions:
-
-```bash
-python -m pip install --upgrade build
-python -m build
-```
-
-Upload to PyPI:
-
-```bash
-python -m pip install --upgrade twine
-python -m twine upload dist/*
+pip install steboxing
 ```
 
 ## Usage
