@@ -124,10 +124,10 @@ def _resolve_sides(box_type: str) -> Dict[str, str]:
     sides = {"top": "thin", "right": "thin", "bottom": "thin", "left": "thin"}
 
     if suffix == "top_and_bottom":
-        sides["top"] = variant
+        sides["top"]    = variant
         sides["bottom"] = variant
     elif suffix == "left_and_right":
-        sides["left"] = variant
+        sides["left"]  = variant
         sides["right"] = variant
     elif suffix == "top_only":
         sides["top"] = variant
@@ -139,15 +139,15 @@ def _resolve_sides(box_type: str) -> Dict[str, str]:
         sides["left"] = variant
     elif suffix == "left_and_top":
         sides["left"] = variant
-        sides["top"] = variant
+        sides["top"]  = variant
     elif suffix == "right_and_top":
         sides["right"] = variant
-        sides["top"] = variant
+        sides["top"]   = variant
     elif suffix == "right_and_bottom":
-        sides["right"] = variant
+        sides["right"]  = variant
         sides["bottom"] = variant
     elif suffix == "left_and_bottom":
-        sides["left"] = variant
+        sides["left"]   = variant
         sides["bottom"] = variant
     elif suffix == "but_bottom":
         sides = {"top": variant, "right": variant, "bottom": "thin", "left": variant}
@@ -165,38 +165,39 @@ def _resolve_sides(box_type: str) -> Dict[str, str]:
     return sides
 
 
-def _build_standard_box(lines: List[str], max_length: int, box_type: str) -> Tuple[str, str, List[str]]:
-    width = max_length + 2
+def _build_standard_box(lines: List[str], max_len: int, box_type: str) -> Tuple[str, str, List[str]]:
+    width = max_len + 2
     sides = _resolve_sides(box_type)
 
     if box_type == "round":
-        top_left = _ROUND_CORNERS["top_left"]
-        top_right = _ROUND_CORNERS["top_right"]
-        bottom_left = _ROUND_CORNERS["bottom_left"]
+        top_left     = _ROUND_CORNERS["top_left"]
+        top_right    = _ROUND_CORNERS["top_right"]
+        bottom_left  = _ROUND_CORNERS["bottom_left"]
         bottom_right = _ROUND_CORNERS["bottom_right"]
     elif box_type.endswith("corners_only"):
-        variant = "bold" if box_type.startswith("bold") else "double"
-        top_left = _CORNER_CHARS["top_left"][(variant, variant)]
-        top_right = _CORNER_CHARS["top_right"][(variant, variant)]
-        bottom_left = _CORNER_CHARS["bottom_left"][(variant, variant)]
+        variant      = "bold" if box_type.startswith("bold") else "double"
+        top_left     = _CORNER_CHARS["top_left"][(variant, variant)]
+        top_right    = _CORNER_CHARS["top_right"][(variant, variant)]
+        bottom_left  = _CORNER_CHARS["bottom_left"][(variant, variant)]
         bottom_right = _CORNER_CHARS["bottom_right"][(variant, variant)]
     else:
-        top_left = _CORNER_CHARS["top_left"][(sides["top"], sides["left"])]
-        top_right = _CORNER_CHARS["top_right"][(sides["top"], sides["right"])]
-        bottom_left = _CORNER_CHARS["bottom_left"][(sides["bottom"], sides["left"])]
+        top_left     = _CORNER_CHARS["top_left"][(sides["top"], sides["left"])]
+        top_right    = _CORNER_CHARS["top_right"][(sides["top"], sides["right"])]
+        bottom_left  = _CORNER_CHARS["bottom_left"][(sides["bottom"], sides["left"])]
         bottom_right = _CORNER_CHARS["bottom_right"][(sides["bottom"], sides["right"])]
 
-    top_border = top_left + (_HORIZONTAL_CHARS[sides["top"]] * width) + top_right
+    top_border    = top_left + (_HORIZONTAL_CHARS[sides["top"]] * width) + top_right
     bottom_border = bottom_left + (_HORIZONTAL_CHARS[sides["bottom"]] * width) + bottom_right
-    boxed_lines = [
-        f"{_VERTICAL_CHARS[sides['left']]} {line.ljust(max_length)} {_VERTICAL_CHARS[sides['right']]}"
+    boxed_lines   = [
+        f"{_VERTICAL_CHARS[sides['left']]} {line.ljust(max_len)} {_VERTICAL_CHARS[sides['right']]}"
         for line in lines
     ]
+
     return top_border, bottom_border, boxed_lines
 
 
-def _build_chain_box(lines: List[str], max_length: int, box_type: str) -> Tuple[str, str, List[str]]:
-    width = max_length + 2
+def _build_chain_box(lines: List[str], max_len: int, box_type: str) -> Tuple[str, str, List[str]]:
+    width = max_len + 2
     variant = "bold" if box_type.startswith("bold") else "double"
     top_border = (
         _CORNER_CHARS["top_left"][(variant, variant)]
@@ -212,8 +213,8 @@ def _build_chain_box(lines: List[str], max_length: int, box_type: str) -> Tuple[
 
     for index, line in enumerate(lines):
         side_type = variant if index % 2 else "thin"
-        vertical = _VERTICAL_CHARS[side_type]
-        boxed_lines.append(f"{vertical} {line.ljust(max_length)} {vertical}")
+        vertical  = _VERTICAL_CHARS[side_type]
+        boxed_lines.append(f"{vertical} {line.ljust(max_len)} {vertical}")
 
     return top_border, bottom_border, boxed_lines
 
@@ -223,12 +224,12 @@ def boxing(string: str, box_type: str = "thin") -> str:
         supported = ", ".join(_SUPPORTED_BOX_TYPES)
         raise ValueError(f"box_type not supported: {box_type}. Use one of: {supported}")
 
-    lines = string.splitlines() or [""]
-    max_length = max(len(line) for line in lines)
+    lines   = string.splitlines() or [""]
+    max_len = max(len(line) for line in lines)
 
     if box_type.endswith("chain"):
-        top_border, bottom_border, boxed_lines = _build_chain_box(lines, max_length, box_type)
+        top_border, bottom_border, boxed_lines = _build_chain_box(lines, max_len, box_type)
     else:
-        top_border, bottom_border, boxed_lines = _build_standard_box(lines, max_length, box_type)
+        top_border, bottom_border, boxed_lines = _build_standard_box(lines, max_len, box_type)
 
     return "\n".join([top_border] + boxed_lines + [bottom_border])

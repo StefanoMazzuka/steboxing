@@ -58,44 +58,44 @@ print(boxing("Line one\nLine two\nLine three", box_type="double"))
 
 ## Box styles
 
-| `box_type`                | Preview                      |
-|---------------------------|------------------------------|
-| `thin`                    | `┌─┐ │ │ └─┘`                |
-| `double`                  | `╔═╗ ║ ║ ╚═╝`                |
-| `bold`                    | `┏━┓ ┃ ┃ ┗━┛`                |
-| `round`                   | `╭─╮ │ │ ╰─╯`                |
-| `bold_top_and_bottom`     | `┍━┑ │ │ ┕━┙`                |
-| `double_top_and_bottom`   | `╒═╕ │ │ ╘═╛`                |
-| `bold_left_and_right`     | `┎─┒ ┃ ┃ ┖─┚`                |
-| `double_left_and_right`   | `╓─╖ ║ ║ ╙─╜`                |
-| `bold_top_only`           | `┍━┑ │ │ └─┘`                |
-| `double_top_only`         | `╒═╕ │ │ └─┘`                |
-| `bold_bottom_only`        | `┌─┐ │ │ ┕━┙`                |
-| `double_bottom_only`      | `┌─┐ │ │ ╘═╛`                |
-| `bold_right_only`         | `┌─┒ │ ┃ └─┚`                |
-| `double_right_only`       | `┌─╖ │ ║ └─╜`                |
-| `bold_left_only`          | `┎─┐ ┃ │ ┖─┘`                |
-| `double_left_only`        | `╓─┐ ║ │ ╙─┘`                |
-| `bold_left_and_top`       | `┏━┑ ┃ │ ┖─┘`                |
-| `double_left_and_top`     | `╔═╕ ║ │ ╙─┘`                |
-| `bold_right_and_top`      | `┍━┓ │ ┃ └─┚`                |
-| `double_right_and_top`    | `╒═╗ │ ║ └─╜`                |
-| `bold_right_and_bottom`   | `┌─┒ │ ┃ ┕━┛`                |
-| `double_right_and_bottom` | `┌─╖ │ ║ ╘═╝`                |
-| `bold_left_and_bottom`    | `┎─┐ ┃ │ ┗━┙`                |
-| `double_left_and_bottom`  | `╓─┐ ║ │ ╚═╛`                |
-| `bold_but_bottom`         | `┏━┓ ┃ ┃ ┖─┚`                |
-| `double_but_bottom`       | `╔═╗ ║ ║ ╙─╜`                |
-| `bold_but_left`           | `┍━┓ │ ┃ ┕━┛`                |
-| `double_but_left`         | `╒═╗ │ ║ ╘═╝`                |
-| `bold_but_top`            | `┎─┒ ┃ ┃ ┗━┛`                |
-| `double_but_top`          | `╓─╖ ║ ║ ╚═╝`                |
-| `bold_but_right`          | `┏━┑ ┃ │ ┗━┙`                |
-| `double_but_right`        | `╔═╕ ║ │ ╚═╛`                |
-| `bold_corners_only`       | `┏─┓ │ │ ┗─┛`                |
-| `double_corners_only`     | `╔─╗ │ │ ╚─╝`                |
-| `bold_chain`              | `┏─━─┓` alternating sides    |
-| `double_chain`            | `╔─═─╗` alternating sides    |
+| `box_type`                | Preview                                        |
+|---------------------------|------------------------------------------------|
+| `thin`                    | `┌───────┐`<br>`│ lines │`<br>`└───────┘`      |
+| `double`                  | `╔═══════╗`<br>`║ lines ║`<br>`╚═══════╝`      |
+| `bold`                    | `┏━━━━━━━┓`<br>`┃ lines ┃`<br>`┗━━━━━━━┛`      |
+| `round`                   | `╭───────╮`<br>`│ lines │`<br>`╰───────╯`      |
+| `bold_top_and_bottom`     | `┍━━━━━━━┑`<br>`│ lines │`<br>`┕━━━━━━━┙`      |
+| `double_top_and_bottom`   | `╒═══════╕`<br>`│ lines │`<br>`╘═══════╛`      |
+| `bold_left_and_right`     | `┎───────┒`<br>`┃ lines ┃`<br>`┖───────┚`      |
+| `double_left_and_right`   | `╓───────╖`<br>`║ lines ║`<br>`╙───────╜`      |
+| `bold_top_only`           | `┍━━━━━━━┑`<br>`│ lines │`<br>`└───────┘`      |
+| `double_top_only`         | `╒═══════╕`<br>`│ lines │`<br>`└───────┘`      |
+| `bold_bottom_only`        | `┌───────┐`<br>`│ lines │`<br>`┕━━━━━━━┙`      |
+| `double_bottom_only`      | `┌───────┐`<br>`│ lines │`<br>`╘═══════╛`      |
+| `bold_right_only`         | `┌───────┒`<br>`│ lines ┃`<br>`└───────┚`      |
+| `double_right_only`       | `┌───────╖`<br>`│ lines ║`<br>`└───────╜`      |
+| `bold_left_only`          | `┎───────┐`<br>`┃ lines │`<br>`┖───────┘`      |
+| `double_left_only`        | `╓───────┐`<br>`║ lines │`<br>`╙───────┘`      |
+| `bold_left_and_top`       | `┏━━━━━━━┑`<br>`┃ lines │`<br>`┖───────┘`      |
+| `double_left_and_top`     | `╔═══════╕`<br>`║ lines │`<br>`╙───────┘`      |
+| `bold_right_and_top`      | `┍━━━━━━━┓`<br>`│ lines ┃`<br>`└───────┚`      |
+| `double_right_and_top`    | `╒═══════╗`<br>`│ lines ║`<br>`└───────╜`      |
+| `bold_right_and_bottom`   | `┌───────┒`<br>`│ lines ┃`<br>`┕━━━━━━━┛`      |
+| `double_right_and_bottom` | `┌───────╖`<br>`│ lines ║`<br>`╘═══════╝`      |
+| `bold_left_and_bottom`    | `┎───────┐`<br>`┃ lines │`<br>`┗━━━━━━━┙`      |
+| `double_left_and_bottom`  | `╓───────┐`<br>`║ lines │`<br>`╚═══════╛`      |
+| `bold_but_bottom`         | `┏━━━━━━━┓`<br>`┃ lines ┃`<br>`┖───────┚`      |
+| `double_but_bottom`       | `╔═══════╗`<br>`║ lines ║`<br>`╙───────╜`      |
+| `bold_but_left`           | `┍━━━━━━━┓`<br>`│ lines ┃`<br>`┕━━━━━━━┛`      |
+| `double_but_left`         | `╒═══════╗`<br>`│ lines ║`<br>`╘═══════╝`      |
+| `bold_but_top`            | `┎───────┒`<br>`┃ lines ┃`<br>`┗━━━━━━━┛`      |
+| `double_but_top`          | `╓───────╖`<br>`║ lines ║`<br>`╚═══════╝`      |
+| `bold_but_right`          | `┏━━━━━━━┑`<br>`┃ lines │`<br>`┗━━━━━━━┙`      |
+| `double_but_right`        | `╔═══════╕`<br>`║ lines │`<br>`╚═══════╛`      |
+| `bold_corners_only`       | `┏───────┓`<br>`│ lines │`<br>`┗───────┛`      |
+| `double_corners_only`     | `╔───────╗`<br>`│ lines │`<br>`╚───────╝`      |
+| `bold_chain`              | `┏─━─━─━─┓`<br>`│ lines │`<br>`┗─━─━─━─┛`      |
+| `double_chain`            | `╔─═─═─═─╗`<br>`│ lines │`<br>`╚─═─═─═─╝`      |
 
 ## Error handling
 
